@@ -10,7 +10,7 @@ class Poker
     players.each { |player| nil }
   end
 
-  def play_poker
+  def play
     puts "Players in the poker game:"
     players.zip(hands).each {|player, hand| puts "#{player}: #{hand}" }
     # [pretend there's code here]
@@ -28,7 +28,7 @@ class Chess
     @players = players
   end
 
-  def play_game
+  def play
     puts "Players in the chess game:"
     players.each {|player| puts "#{player[0]}: #{player[1]}"}
     # [pretend there's code here]
@@ -64,7 +64,7 @@ class Go
     # [pretend there's code here]
   end
 
-  def get_score
+  def get_results
     "[pretend these are go results]"
   end
 end
@@ -87,30 +87,29 @@ class PlayGames
     case game_number
     when 1
       poker = Poker.new(player_list)
-      poker.play_poker
+      poker.play
       puts poker.get_results
     when 2
       chess = Chess.new(player_list)
-      chess.play_game
+      chess.play
       puts chess.get_results
     when 3
       go = Go.new(player_list)
       go.play
-      puts go.get_score
+      puts go.get_results
     end
   end
 end
 
 pg = PlayGames.new(1, ["alice", "bob", "chris", "dave"])
-pg.play()
+pg.play
 
 puts
 
 pg = PlayGames.new(2, [["alice", "white"], ["bob", "black"]])
-pg.play()
+pg.play
 
 puts
 
 pg = PlayGames.new(3, [["alice", "white"], ["bob", "black"]])
-pg.play()
-
+pg.play
