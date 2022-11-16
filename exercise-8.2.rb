@@ -37,10 +37,6 @@ class Chess
   def get_results()
     "[pretend these are chess results]"
   end
-
-  def get_player_name(i)
-    @players[i][0]
-  end
 end
 
 class GoPlayer
