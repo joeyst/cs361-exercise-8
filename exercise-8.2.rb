@@ -46,6 +46,10 @@ class GoPlayer
     @name = name
     @color = color
   end
+
+  def self.init(names, colors)
+    names.zip(colors).each {|name, color| self.new(name, color)}
+  end
 end
 
 class Go
