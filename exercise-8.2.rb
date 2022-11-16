@@ -83,21 +83,10 @@ class PlayGames
     @game_number = game_number
   end
 
-  def play()
-    case game_number
-    when 1
-      poker = Poker.new(player_list)
-      poker.play
-      puts poker.get_results
-    when 2
-      chess = Chess.new(player_list)
-      chess.play
-      puts chess.get_results
-    when 3
-      go = Go.new(player_list)
-      go.play
-      puts go.get_results
-    end
+  def play
+    game = GAME_MAP[game_number].new(player_list)
+    game.play
+    puts game.get_results
   end
 end
 
