@@ -48,19 +48,19 @@ class GoPlayer
   end
 
   def self.init(names, colors)
-    names.zip(colors).each {|name, color| self.new(name, color)}
+    names.zip(colors).transpose.map {|name, color| self.new(name, color)}
   end
 end
 
 class Go
+  attr_reader :players
+
   def initialize(players)
-    @players = []
-    players.each { |x, y| @players.append(GoPlayer.new(x, y)) }
+    @players = GoPlayer.init(*players)
   end
 
-  def play()
-    puts "Players in the go game:"
-    @players.each { |player| puts "#{player.name}: #{player.color}" }
+  def play
+    players.each { |player| puts "#{player.name}: #{player.color}" }
     # [pretend there's code here]
   end
 
