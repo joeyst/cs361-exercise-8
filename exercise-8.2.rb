@@ -1,8 +1,13 @@
 class Poker
+  attr_accessor :players, :hands
+
   def initialize(players)
     @players = players
-    @hands = []
-    players.length().times { |x| @hands.append(nil) }
+    @hands = _init_hands
+  end
+
+  def _init_hands
+    players.each { |player| nil }
   end
 
   def play_poker()
