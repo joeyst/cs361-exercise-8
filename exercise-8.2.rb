@@ -22,13 +22,15 @@ class Poker
 end
 
 class Chess
+  attr_reader :players
+
   def initialize(players)
     @players = players
   end
 
-  def play_game()
+  def play_game
     puts "Players in the chess game:"
-    @players.length().times { |x| puts "#{self.get_player_name(x)}: #{@players[x][1]}" }
+    players.each {|player| puts "#{player[0]}: #{player[1]}"}
     # [pretend there's code here]
   end
 
