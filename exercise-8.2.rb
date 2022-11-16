@@ -7,7 +7,7 @@ class Poker
   end
 
   def _init_hands
-    players.each { |player| nil }
+    players.map { |player| nil }
   end
 
   def play
@@ -47,8 +47,8 @@ class GoPlayer
     @color = color
   end
 
-  def self.init(names, colors)
-    names.zip(colors).transpose.map {|name, color| self.new(name, color)}
+  def self.init(players)
+    players.map {|player| self.new(player[0], player[1])}
   end
 end
 
@@ -56,7 +56,7 @@ class Go
   attr_reader :players
 
   def initialize(players)
-    @players = GoPlayer.init(*players)
+    @players = GoPlayer.init(players)
   end
 
   def play
