@@ -64,12 +64,19 @@ class Go
     # [pretend there's code here]
   end
 
-  def get_score()
+  def get_score
     "[pretend these are go results]"
   end
 end
 
 class PlayGames
+  attr_reader :game_number, :player_list
+
+  GAME_MAP = {
+    1 => Poker, 
+    2 => Chess,
+    3 => Go
+  }
 
   def initialize(game_number, player_list)
     @player_list = player_list
@@ -77,7 +84,7 @@ class PlayGames
   end
 
   def play()
-    case @game_number
+    case game_number
     when 1
       poker = Poker.new(@player_list)
       poker.play_poker()
