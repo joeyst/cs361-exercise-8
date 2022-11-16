@@ -10,22 +10,14 @@ class Poker
     players.each { |player| nil }
   end
 
-  def play_poker()
+  def play_poker
     puts "Players in the poker game:"
-    @players.length().times { |i| puts "#{self.get_player_name(i)}: #{self.get_player_hand(i)}" }
+    players.zip(hands).each {|player, hand| puts "#{player}: #{hand}" }
     # [pretend there's code here]
   end
 
-  def get_results()
-    return "[pretend these are poker results]"
-  end
-
-  def get_player_name(i)
-    return @players[i]
-  end
-
-  def get_player_hand(i)
-    return @hands[i]
+  def get_results
+    "[pretend these are poker results]"
   end
 end
 
@@ -41,7 +33,7 @@ class Chess
   end
 
   def get_results()
-    return "[pretend these are chess results]"
+    "[pretend these are chess results]"
   end
 
   def get_player_name(i)
@@ -71,7 +63,7 @@ class Go
   end
 
   def get_score()
-    return "[pretend these are go results]"
+    "[pretend these are go results]"
   end
 end
 
